@@ -7,104 +7,140 @@
 
   <!-- Favicon & Manifest -->
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Code R Dev" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Tailwind CSS & Icons -->
+  <!-- Tailwind + Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+    #canvas-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
     }
-    .section { padding: 4rem 1rem; }
-    .project-card { border-radius: 0.75rem; overflow: hidden; }
   </style>
 </head>
-<body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-all duration-300">
 
-  <!-- 🔘 Light/Dark Toggle -->
-  <button onclick="toggleDarkMode()" class="fixed top-4 right-4 z-50 bg-gray-800 text-white px-4 py-2 rounded hover:opacity-80">
+  <!-- 3D Background -->
+  <canvas id="canvas-bg"></canvas>
+
+  <!-- Theme Toggle -->
+  <button onclick="toggleDarkMode()" class="fixed top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded z-50">
     Toggle Mode
   </button>
 
-  <!-- Hero Section -->
-  <section class="text-center section" data-aos="zoom-in">
-    <h1 class="text-5xl font-bold mb-4">Hi, I'm <span class="text-indigo-500">R. Rohith</span></h1>
+  <!-- Hero -->
+  <section class="text-center py-20" data-aos="fade-up">
+    <h1 class="text-5xl font-bold mb-2">Hi, I'm <span class="text-indigo-500">R. Rohith</span></h1>
     <h2 class="text-xl mb-4">Python + Design Hybrid | Tech Support | Beginner Developer</h2>
-    <p class="mb-6 text-gray-500 dark:text-gray-300">Crafting digital experiences through code and creative design solutions.</p>
-    <div class="flex justify-center space-x-4">
+    <p class="mb-6 text-gray-500 dark:text-gray-300">Crafting digital experiences through code and creative design.</p>
+    <div class="flex justify-center gap-4">
       <a href="#skills" class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition">My Skills</a>
-      <a href="Rohith Resume Global.pdf" download class="border border-indigo-600 text-indigo-600 px-5 py-2 rounded hover:bg-indigo-100 dark:hover:bg-gray-700 transition">📄 Download Resume</a>
+      <a href="Rohith Resume Global.pdf" download class="border border-indigo-600 text-indigo-600 px-5 py-2 rounded hover:bg-indigo-100 dark:hover:bg-gray-700">📄 Download Resume</a>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6 text-center">Skills</h2>
-    <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in">Python</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="100">Flask</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="200">File/Data Automation</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="300">Canva & Photopea</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="400">CapCut</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="500">Photoshop</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded" data-aos="zoom-in" data-aos-delay="600">Social Media Design</span>
+  <!-- Skills -->
+  <section id="skills" class="py-20 px-4 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
+    <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Python</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Flask</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">File/Data Automation</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Canva</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Photopea</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Photoshop</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">CapCut</span>
+      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Social Media Graphics</span>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="section text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-6">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-      <div class="bg-white dark:bg-gray-800 shadow-md p-4 project-card" data-aos="flip-left">
-        <img src="project1.png" alt="Fake News Detection System" class="rounded w-full h-48 object-cover mb-4">
-        <h3 class="font-semibold text-xl mb-2">Fake News Detection System</h3>
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-4 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-10">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in">
+        <img src="project1.png" class="w-full h-48 object-cover rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Fake News Detection System</h3>
         <p class="text-sm text-gray-500 dark:text-gray-300">Flask web app using BERT to detect fake news articles in real-time.</p>
       </div>
-      <div class="bg-white dark:bg-gray-800 shadow-md p-4 project-card" data-aos="flip-left" data-aos-delay="100">
-        <img src="project2.png" alt="Blockchain Medical Record" class="rounded w-full h-48 object-cover mb-4">
-        <h3 class="font-semibold text-xl mb-2">Blockchain Medical Record</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-300">Decentralized platform using Ethereum and IPFS for secure medical records.</p>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="100">
+        <img src="project2.png" class="w-full h-48 object-cover rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Blockchain Medical Records</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Ethereum + IPFS to store and share secure medical records.</p>
       </div>
-      <div class="bg-white dark:bg-gray-800 shadow-md p-4 project-card" data-aos="flip-left" data-aos-delay="200">
-        <img src="project3.png" alt="Poster & Thumbnail Design" class="rounded w-full h-48 object-cover mb-4">
-        <h3 class="font-semibold text-xl mb-2">Poster & Thumbnail Design</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-300">Designed creative posters and thumbnails using Canva and Photopea.</p>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+        <img src="project3.png" class="w-full h-48 object-cover rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Poster & Thumbnail Design</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Creative designs using Canva and Photopea for social media.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section bg-gray-100 dark:bg-gray-800 text-center" data-aos="fade-up">
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-4 text-center bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
     <p class="mb-2">📧 <a href="mailto:vrohith17@gmail.com" class="text-indigo-500">vrohith17@gmail.com</a></p>
-    <p class="mb-4">🔗 <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank" class="text-indigo-500">LinkedIn Profile</a></p>
-    <p>🌐 <a href="https://github.com/codewithrohith-dev" target="_blank" class="text-indigo-500">GitHub: codewithrohith-dev</a></p>
+    <p class="mb-2">🔗 <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" class="text-indigo-500" target="_blank">LinkedIn</a></p>
+    <p>💻 <a href="https://github.com/codewithrohith-dev" class="text-indigo-500" target="_blank">GitHub</a></p>
   </section>
 
   <!-- Footer -->
   <footer class="py-6 text-center text-sm text-gray-400 dark:text-gray-500">
-    © 2024 R. Rohith. All rights reserved.
+    © 2025 R. Rohith. All rights reserved.
   </footer>
 
-  <!-- Scripts -->
+  <!-- JS: AOS, Theme Toggle, 3D Background -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      AOS.init({ once: true, duration: 1000 });
-    });
+    AOS.init({ once: true });
 
     function toggleDarkMode() {
       document.documentElement.classList.toggle('dark');
     }
+
+    // Three.js 3D background
+    const canvas = document.getElementById('canvas-bg');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const particles = new THREE.BufferGeometry();
+    const count = 1000;
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 10;
+    }
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.01 });
+    const points = new THREE.Points(particles, material);
+    scene.add(points);
+    camera.position.z = 2;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      points.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
   </script>
 </body>
 </html>
