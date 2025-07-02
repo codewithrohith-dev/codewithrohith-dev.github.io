@@ -11,11 +11,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Tailwind + Icons -->
+  <!-- Tailwind & Three.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
   <style>
     html { scroll-behavior: smooth; }
@@ -23,72 +23,79 @@
     #canvas-bg {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100vw; height: 100vh;
       z-index: -1;
+    }
+    .toggle-btn {
+      @apply fixed top-4 right-4 bg-white dark:bg-gray-800 text-black dark:text-white px-3 py-2 rounded-full shadow-lg border dark:border-gray-600 border-gray-300 z-50 transition hover:scale-105;
+    }
+    .badge {
+      @apply bg-gray-200 dark:bg-gray-700 text-sm px-4 py-2 rounded shadow;
     }
   </style>
 </head>
 <body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-all duration-300">
 
-  <!-- 3D Background -->
+  <!-- 3D Canvas -->
   <canvas id="canvas-bg"></canvas>
 
-  <!-- Theme Toggle -->
-  <button onclick="toggleDarkMode()" class="fixed top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded z-50">
-    Toggle Mode
-  </button>
+  <!-- Theme Toggle Button -->
+  <button onclick="toggleDarkMode()" class="toggle-btn"><i class="fas fa-moon"></i></button>
 
   <!-- Hero -->
-  <section class="text-center py-20" data-aos="fade-up">
+  <section class="text-center py-20 px-6" data-aos="fade-up">
     <h1 class="text-5xl font-bold mb-2">Hi, I'm <span class="text-indigo-500">R. Rohith</span></h1>
     <h2 class="text-xl mb-4">Python + Design Hybrid | Tech Support | Beginner Developer</h2>
     <p class="mb-6 text-gray-500 dark:text-gray-300">Crafting digital experiences through code and creative design.</p>
-    <div class="flex justify-center gap-4">
-      <a href="#skills" class="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition">My Skills</a>
-      <a href="Rohith Resume Global.pdf" download class="border border-indigo-600 text-indigo-600 px-5 py-2 rounded hover:bg-indigo-100 dark:hover:bg-gray-700">📄 Download Resume</a>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#skills" class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+        🚀 My Skills
+      </a>
+      <a href="Rohith Resume Global.pdf" download class="border border-indigo-600 text-indigo-600 px-6 py-2 rounded-full hover:bg-indigo-100 dark:hover:bg-gray-700">
+        📄 Download Resume
+      </a>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-20 px-4 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
-    <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Python</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Flask</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">File/Data Automation</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Canva</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Photopea</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Photoshop</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">CapCut</span>
-      <span class="bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded">Social Media Graphics</span>
+  <section id="skills" class="py-20 px-6 bg-gray-100 dark:bg-gray-800 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-8">Skills</h2>
+    <div class="flex flex-wrap justify-center gap-3">
+      <span class="badge">Python</span>
+      <span class="badge">Flask</span>
+      <span class="badge">File/Data Automation</span>
+      <span class="badge">Canva</span>
+      <span class="badge">Photopea</span>
+      <span class="badge">Photoshop</span>
+      <span class="badge">CapCut</span>
+      <span class="badge">Social Media Graphics</span>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-20 px-4 text-center" data-aos="fade-up">
+  <section id="projects" class="py-20 px-6 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-10">Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in">
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow" data-aos="zoom-in">
         <img src="project1.png" class="w-full h-48 object-cover rounded mb-4" />
         <h3 class="text-xl font-semibold mb-2">Fake News Detection System</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-300">Flask web app using BERT to detect fake news articles in real-time.</p>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Flask app using BERT to detect fake news in real-time.</p>
       </div>
-      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="100">
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow" data-aos="zoom-in" data-aos-delay="100">
         <img src="project2.png" class="w-full h-48 object-cover rounded mb-4" />
         <h3 class="text-xl font-semibold mb-2">Blockchain Medical Records</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-300">Ethereum + IPFS to store and share secure medical records.</p>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Ethereum + IPFS to store & share secure health data.</p>
       </div>
-      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+      <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow" data-aos="zoom-in" data-aos-delay="200">
         <img src="project3.png" class="w-full h-48 object-cover rounded mb-4" />
         <h3 class="text-xl font-semibold mb-2">Poster & Thumbnail Design</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-300">Creative designs using Canva and Photopea for social media.</p>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Creative social media visuals using Canva & Photopea.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 px-4 text-center bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+  <section id="contact" class="py-20 px-6 bg-gray-100 dark:bg-gray-800 text-center" data-aos="fade-up">
     <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
     <p class="mb-2">📧 <a href="mailto:vrohith17@gmail.com" class="text-indigo-500">vrohith17@gmail.com</a></p>
     <p class="mb-2">🔗 <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" class="text-indigo-500" target="_blank">LinkedIn</a></p>
@@ -100,7 +107,7 @@
     © 2025 R. Rohith. All rights reserved.
   </footer>
 
-  <!-- JS: AOS, Theme Toggle, 3D Background -->
+  <!-- AOS + Theme Toggle + 3D BG Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ once: true });
@@ -109,29 +116,29 @@
       document.documentElement.classList.toggle('dark');
     }
 
-    // Three.js 3D background
+    // THREE.JS Background
     const canvas = document.getElementById('canvas-bg');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 2;
 
     const particles = new THREE.BufferGeometry();
     const count = 1000;
-    const positions = new Float32Array(count * 3);
+    const posArray = new Float32Array(count * 3);
     for (let i = 0; i < count * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 10;
+      posArray[i] = (Math.random() - 0.5) * 10;
     }
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
     const material = new THREE.PointsMaterial({ color: 0x6c5ce7, size: 0.01 });
-    const points = new THREE.Points(particles, material);
-    scene.add(points);
-    camera.position.z = 2;
+    const mesh = new THREE.Points(particles, material);
+    scene.add(mesh);
 
     function animate() {
       requestAnimationFrame(animate);
-      points.rotation.y += 0.0005;
+      mesh.rotation.y += 0.0005;
       renderer.render(scene, camera);
     }
     animate();
