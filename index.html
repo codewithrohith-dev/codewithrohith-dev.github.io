@@ -2,104 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>R. Rohith | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R Rohith | Portfolio</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon-96x96.png" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+
+  <!-- External CSS (paste this in style tag or style.css) -->
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; }
+
+    /* Matrix Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(0deg, #0f0, #0f0 1px, transparent 2px),
+                  repeating-linear-gradient(90deg, #0f0, #0f0 1px, transparent 2px);
+      opacity: 0.03;
+      z-index: -1;
+    }
+
+    /* Glow Button */
+    .glow-btn {
+      width: 160px;
+      height: 50px;
+      border-radius: 12px;
+      font-size: 16px;
+      border: none;
+      color: white;
+      background: #100720;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+    .glow-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: radial-gradient(circle at 10% 20%, rgba(255,94,247,1), rgba(2,245,255,1));
+      filter: blur(15px);
+      z-index: -1;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 50;
+      background: #1e1e1e;
+      border: 2px solid #aaa;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .dark .theme-toggle {
+      background: #f0f0f0;
+      color: #111;
+    }
+
+    /* Contact Form */
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      background: linear-gradient(#212121, #212121) padding-box,
+                  linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+      border: 2px solid transparent;
+      padding: 32px 24px;
+      border-radius: 16px;
+      color: white;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      background: transparent;
+      border: 1px solid #444;
+      padding: 0.8rem;
+      border-radius: 8px;
+      color: white;
+    }
+    .form-group label {
+      font-size: 14px;
+      margin-bottom: 0.3rem;
+      color: #bbb;
+    }
+    .form-submit-btn {
+      background: #313131;
+      color: #eee;
+      border: 1px solid #414141;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .form-submit-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
 </head>
-<body>
 
-  <!-- Matrix Background -->
-  <div class="matrix-container" aria-hidden="true">
-    <div class="matrix-pattern">
-      <div class="matrix-column"></div>
-      <div class="matrix-column"></div>
-      <div class="matrix-column"></div>
-    </div>
-  </div>
-
+<body class="bg-white text-black dark:bg-black dark:text-white transition duration-300">
   <!-- Theme Toggle -->
-  <label class="theme-switch">
-    <input type="checkbox" class="theme-switch__checkbox" onclick="toggleDarkMode()" />
-    <div class="theme-switch__container">
-      <div class="theme-switch__clouds"></div>
-      <div class="theme-switch__stars-container">🌙</div>
-      <div class="theme-switch__circle-container">
-        <div class="theme-switch__sun-moon-container">
-          <div class="theme-switch__moon">
-            <div class="theme-switch__spot"></div>
-            <div class="theme-switch__spot"></div>
-            <div class="theme-switch__spot"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </label>
+  <button class="theme-toggle" onclick="document.documentElement.classList.toggle('dark')">
+    <i class="fas fa-circle-half-stroke"></i> Toggle
+  </button>
 
-  <!-- Hero -->
-  <section class="hero" data-aos="fade-up">
-    <h1>Hi, I'm <span>R. Rohith</span></h1>
-    <p>Python + Design Hybrid | Tech Support | Beginner Developer</p>
-    <a href="Rohith Resume Global.pdf" class="glow-btn" download>📄 Download Resume</a>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="skills-section" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>Python</span><span>Flask</span><span>File Automation</span>
-      <span>Canva</span><span>Photopea</span><span>Social Graphics</span>
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6" data-aos="fade-up">
+    <h1 class="text-5xl font-bold mb-4">R. Rohith</h1>
+    <p class="text-xl mb-4">Python + Design Hybrid | Tech Support | Beginner Developer</p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="#skills"><button class="glow-btn">Skills</button></a>
+      <a href="Rohith Resume Global.pdf" target="_blank"><button class="glow-btn">📄 View Resume</button></a>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="project1.png" alt="Fake News Project"/>
-        <h3>Fake News Detection</h3>
-        <p>BERT + Flask app to detect fake news.</p>
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-100 dark:bg-gray-800 text-center" data-aos="fade-right">
+    <h2 class="text-3xl font-bold mb-6">Skills</h2>
+    <div class="flex justify-center flex-wrap gap-4 text-sm font-medium">
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Python</span>
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Flask</span>
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Canva</span>
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Photopea</span>
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">File Automation</span>
+      <span class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">CapCut</span>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-6 text-center" data-aos="zoom-in">
+    <h2 class="text-3xl font-bold mb-6">Projects</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-gray-900 p-4 rounded shadow">
+        <img src="project1.png" class="rounded mb-4" />
+        <h3 class="font-semibold text-lg">Fake News Detection</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-300">BERT + Flask to detect fake news live</p>
       </div>
-      <div class="project-card">
-        <img src="project2.png" alt="Blockchain Records"/>
-        <h3>Medical Record System</h3>
-        <p>Secure Ethereum IPFS-based medical sharing app.</p>
+      <div class="bg-white dark:bg-gray-900 p-4 rounded shadow">
+        <img src="project2.png" class="rounded mb-4" />
+        <h3 class="font-semibold text-lg">Blockchain Medical Records</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-300">IPFS + Ethereum for secured medical data</p>
+      </div>
+      <div class="bg-white dark:bg-gray-900 p-4 rounded shadow">
+        <img src="project3.png" class="rounded mb-4" />
+        <h3 class="font-semibold text-lg">Design Portfolio</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Posters & thumbnails using Canva/Photopea</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section class="contact" data-aos="fade-up">
-    <h2>Contact Me</h2>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 text-center bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
     <div class="form-container">
       <form class="form">
         <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" required>
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="your@email.com" required />
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" required></textarea>
+          <label for="message">How can I help?</label>
+          <textarea id="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="form-submit-btn">Send</button>
+        <button type="submit" class="form-submit-btn">Send Message</button>
       </form>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 R. Rohith</p>
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-400 dark:text-gray-500">
+    &copy; 2025 R. Rohith. All rights reserved.
   </footer>
 
-<script>
-  AOS.init();
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark");
-  }
-</script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
