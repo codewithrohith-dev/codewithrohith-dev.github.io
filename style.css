@@ -1,75 +1,173 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  transition: background 0.5s, color 0.5s;
-  background-color: #111;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark body {
+  background-color: #000;
   color: #fff;
 }
 
-.hero {
-  padding: 80px 20px;
-  text-align: center;
+/* ===== Matrix Background Pattern ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(0deg, #0f0, #0f0 1px, transparent 2px),
+              repeating-linear-gradient(90deg, #0f0, #0f0 1px, transparent 2px);
+  opacity: 0.03;
+  z-index: -1;
+  pointer-events: none;
 }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: #1e1e1e;
+  border: 2px solid #aaa;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
 }
 
-.skills-list span {
-  background: #222;
-  padding: 10px 16px;
-  border-radius: 6px;
+.dark .theme-toggle {
+  background: #f0f0f0;
+  color: #111;
+  border-color: #444;
 }
 
+/* ===== Glowing Button Style ===== */
 .glow-btn {
-  padding: 12px 24px;
-  background: #0f0;
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.glow-btn:hover {
-  background: #4f0;
-}
-
-.project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  width: 160px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  background: #100720;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.project-card {
-  background: #1b1b1b;
-  padding: 20px;
-  border-radius: 10px;
-  width: 280px;
-}
-
-.project-card img {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #777;
-}
-
-/* Toggle switch style comes from your custom styles */
-.theme-switch {
+.glow-btn::after {
+  content: '';
   position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 94, 247, 1), rgba(2, 245, 255, 1));
+  filter: blur(15px);
+  z-index: -1;
 }
 
-/* Add the Matrix background + form + loader etc. here */
+/* ===== Form Container ===== */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  border-radius: 16px;
+  color: white;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 0.3rem;
+  color: #bbb;
+}
+
+.form-group input,
+.form-group textarea {
+  background: transparent;
+  border: 1px solid #444;
+  padding: 0.8rem;
+  border-radius: 8px;
+  color: white;
+  resize: none;
+  font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  opacity: 0.5;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+/* ===== Submit Button ===== */
+.form-submit-btn {
+  background: #313131;
+  color: #eee;
+  border: 1px solid #414141;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-submit-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ===== Footer ===== */
+footer {
+  font-size: 0.875rem;
+  padding: 1rem;
+  text-align: center;
+  color: #888;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media screen and (max-width: 768px) {
+  .glow-btn {
+    width: 100%;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
