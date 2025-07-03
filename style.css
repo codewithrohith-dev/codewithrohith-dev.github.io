@@ -139,3 +139,41 @@ body {
   background: url('https://media.giphy.com/media/LZElUsjl1Bu5W/giphy.gif') center center / cover no-repeat;
   opacity: 0.2;
 }
+/* Matrix Code Background */
+.matrix-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: #000;
+  overflow: hidden;
+  opacity: 0.2;
+}
+.matrix-background::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://media.giphy.com/media/xUA7bdpLxQhsSQdyog/giphy.gif');
+  background-size: cover;
+  opacity: 1;
+  z-index: -1;
+}
+
+/* Neon Glow Profile */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #40c9ff;
+  box-shadow: 0 0 20px #40c9ff, 0 0 40px #40c9ff88;
+}
+
