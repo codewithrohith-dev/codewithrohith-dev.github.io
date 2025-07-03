@@ -1,142 +1,130 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R. Rohith | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R Rohith | Portfolio</title>
+  
+  <!-- Favicon & Manifest -->
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Tailwind & Fonts -->
+  <!-- Icons + AOS + Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', sans-serif; }
-    #canvas-bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -1;
-    }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
-<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-all duration-300">
+<body class="dark:bg-black dark:text-white bg-white text-black transition duration-300 ease-in-out">
 
-<!-- 3D Background -->
-<canvas id="canvas-bg"></canvas>
-
-<!-- Theme Toggle -->
-<button onclick="toggleDarkMode()" class="fixed top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded shadow z-50">
-  Toggle Mode
-</button>
-
-<!-- Hero -->
-<section class="text-center py-20 px-4" data-aos="fade-up">
-  <img src="profile.jpeg" alt="Profile" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-lg object-cover border-4 border-indigo-500" />
-  <h1 class="text-4xl md:text-5xl font-bold mb-2">Hi, I'm <span class="text-indigo-500">R. Rohith</span></h1>
-  <h2 class="text-xl mb-4">Python + Design Hybrid | Tech Support | Beginner Developer</h2>
-  <p class="text-gray-500 dark:text-gray-300 max-w-xl mx-auto mb-6">Crafting digital experiences through code and design — with a touch of creativity and a love for clean visuals.</p>
-  <div class="flex justify-center flex-wrap gap-4">
-    <a href="#skills" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">Explore Skills</a>
-    <a href="Rohith Resume Global.pdf" target="_blank" class="border border-indigo-600 text-indigo-600 px-6 py-2 rounded hover:bg-indigo-100 dark:hover:bg-gray-800">📄 View Resume</a>
+  <!-- Theme Switcher -->
+  <div id="themeToggleWrapper">
+    <label class="theme-switch">
+      <input type="checkbox" id="themeCheckbox" class="theme-switch__checkbox">
+      <div class="theme-switch__container">
+        <div class="theme-switch__clouds"></div>
+        <div class="theme-switch__stars-container">
+          <!-- SVG stars here -->
+        </div>
+        <div class="theme-switch__circle-container">
+          <div class="theme-switch__sun-moon-container">
+            <div class="theme-switch__moon">
+              <div class="theme-switch__spot"></div>
+              <div class="theme-switch__spot"></div>
+              <div class="theme-switch__spot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </label>
   </div>
-</section>
 
-<!-- Skills -->
-<section id="skills" class="py-20 px-6 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-center mb-10">Skills</h2>
-  <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Python</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Flask</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Canva</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Photopea</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Photoshop</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">CapCut</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Image Editing</span>
-    <span class="bg-indigo-100 dark:bg-indigo-600/30 px-4 py-2 rounded-full">Social Media Graphics</span>
-  </div>
-</section>
-
-<!-- Projects -->
-<section id="projects" class="py-20 px-6" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-white dark:bg-gray-800 p-5 rounded shadow" data-aos="fade-up">
-      <img src="project1.png" class="w-full h-48 object-cover rounded mb-4" />
-      <h3 class="text-xl font-semibold mb-2">Fake News Detection</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Flask app using BERT for real-time fake news detection.</p>
+  <!-- Hero Section -->
+  <section class="text-center py-20" data-aos="fade-up">
+    <h1 class="text-5xl font-bold mb-4">Hi, I'm <span class="text-indigo-500">R. Rohith</span></h1>
+    <p class="text-lg mb-6">Python + Design Hybrid | Tech Support | Beginner Developer</p>
+    <div class="flex justify-center gap-4">
+      <a href="#skills"><button>My Skills</button></a>
+      <a href="Rohith Resume Global.pdf" target="_blank"><button>Preview Resume</button></a>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-5 rounded shadow" data-aos="fade-up" data-aos-delay="100">
-      <img src="project2.png" class="w-full h-48 object-cover rounded mb-4" />
-      <h3 class="text-xl font-semibold mb-2">Blockchain Medical Records</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Secure decentralized medical records via Ethereum + IPFS.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-16 px-4" data-aos="fade-right">
+    <h2 class="text-3xl font-semibold text-center mb-10">Skills</h2>
+    <div class="flex flex-wrap justify-center gap-3 text-sm font-medium">
+      <span class="tag">Python</span>
+      <span class="tag">Flask</span>
+      <span class="tag">Automation</span>
+      <span class="tag">Canva</span>
+      <span class="tag">CapCut</span>
+      <span class="tag">Photopea</span>
     </div>
-    <div class="bg-white dark:bg-gray-800 p-5 rounded shadow" data-aos="fade-up" data-aos-delay="200">
-      <img src="project3.png" class="w-full h-48 object-cover rounded mb-4" />
-      <h3 class="text-xl font-semibold mb-2">Design Projects</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Thumbnails, posters, edits done with Canva + Photopea.</p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-16 px-4" data-aos="fade-left">
+    <h2 class="text-3xl font-semibold text-center mb-10">Projects</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="project-card">
+        <img src="project1.png" alt="Project 1" />
+        <h3>Fake News Detection</h3>
+        <p>Flask + BERT model detecting fake news</p>
+      </div>
+      <div class="project-card">
+        <img src="project2.png" alt="Project 2" />
+        <h3>Medical Blockchain</h3>
+        <p>IPFS + Ethereum health record management</p>
+      </div>
+      <div class="project-card">
+        <img src="project3.png" alt="Project 3" />
+        <h3>Poster/Thumbnail Design</h3>
+        <p>Creative assets made using Canva/Photopea</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Contact -->
-<section id="contact" class="py-20 px-6 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-center mb-10">Get in Touch</h2>
-  <form class="max-w-xl mx-auto space-y-6" onsubmit="event.preventDefault(); alert('Thank you for contacting!'); this.reset();">
-    <input type="text" placeholder="Name" required class="w-full px-4 py-3 rounded bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700" />
-    <input type="email" placeholder="Email" required class="w-full px-4 py-3 rounded bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700" />
-    <textarea placeholder="Your Message" rows="4" required class="w-full px-4 py-3 rounded bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700"></textarea>
-    <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition w-full">Send Message</button>
-  </form>
-</section>
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-4 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+    <p>Email: <a href="mailto:vrohith17@gmail.com" class="text-indigo-500">vrohith17@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank" class="text-indigo-500">linkedin.com/in/rohith</a></p>
+    <p>GitHub: <a href="https://github.com/codewithrohith-dev" target="_blank" class="text-indigo-500">codewithrohith-dev</a></p>
+    <br><br>
+    <!-- Contact Form -->
+    <div class="form-container mx-auto">
+      <form class="form">
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="text" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="textarea">Message</label>
+          <textarea id="textarea" rows="6" required></textarea>
+        </div>
+        <button class="form-submit-btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400">
-  &copy; 2025 R. Rohith — All rights reserved.
-</footer>
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-400">
+    <p>© 2025 R. Rohith. All rights reserved.</p>
+  </footer>
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ once: false });
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: false });
 
-  function toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
-  }
-
-  // 3D background
-  const canvas = document.getElementById('canvas-bg');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  const geometry = new THREE.BufferGeometry();
-  const particlesCount = 800;
-  const positions = new Float32Array(particlesCount * 3);
-  for (let i = 0; i < particlesCount * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 10;
-  }
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const material = new THREE.PointsMaterial({ size: 0.015, color: 0x6c5ce7 });
-  const points = new THREE.Points(geometry, material);
-  scene.add(points);
-  camera.position.z = 2;
-  function animate() {
-    requestAnimationFrame(animate);
-    points.rotation.y += 0.001;
-    renderer.render(scene, camera);
-  }
-  animate();
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-</script>
+    // Dark Mode Toggle
+    const checkbox = document.getElementById('themeCheckbox');
+    checkbox.addEventListener('change', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
