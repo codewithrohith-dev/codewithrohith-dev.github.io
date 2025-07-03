@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R. Rohith | Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon-96x96.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+</head>
+<body>
+
+  <!-- Matrix Background -->
+  <div class="matrix-container" aria-hidden="true">
+    <div class="matrix-pattern">
+      <div class="matrix-column"></div>
+      <div class="matrix-column"></div>
+      <div class="matrix-column"></div>
+    </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <label class="theme-switch">
+    <input type="checkbox" class="theme-switch__checkbox" onclick="toggleDarkMode()" />
+    <div class="theme-switch__container">
+      <div class="theme-switch__clouds"></div>
+      <div class="theme-switch__stars-container">🌙</div>
+      <div class="theme-switch__circle-container">
+        <div class="theme-switch__sun-moon-container">
+          <div class="theme-switch__moon">
+            <div class="theme-switch__spot"></div>
+            <div class="theme-switch__spot"></div>
+            <div class="theme-switch__spot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </label>
+
+  <!-- Hero -->
+  <section class="hero" data-aos="fade-up">
+    <h1>Hi, I'm <span>R. Rohith</span></h1>
+    <p>Python + Design Hybrid | Tech Support | Beginner Developer</p>
+    <a href="Rohith Resume Global.pdf" class="glow-btn" download>📄 Download Resume</a>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>Python</span><span>Flask</span><span>File Automation</span>
+      <span>Canva</span><span>Photopea</span><span>Social Graphics</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="project1.png" alt="Fake News Project"/>
+        <h3>Fake News Detection</h3>
+        <p>BERT + Flask app to detect fake news.</p>
+      </div>
+      <div class="project-card">
+        <img src="project2.png" alt="Blockchain Records"/>
+        <h3>Medical Record System</h3>
+        <p>Secure Ethereum IPFS-based medical sharing app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <div class="form-container">
+      <form class="form">
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="form-submit-btn">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 R. Rohith</p>
+  </footer>
+
+<script>
+  AOS.init();
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  }
+</script>
+</body>
+</html>

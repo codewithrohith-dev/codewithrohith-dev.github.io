@@ -1,0 +1,75 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  transition: background 0.5s, color 0.5s;
+  background-color: #111;
+  color: #fff;
+}
+
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skills-list span {
+  background: #222;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+.glow-btn {
+  padding: 12px 24px;
+  background: #0f0;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.glow-btn:hover {
+  background: #4f0;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 280px;
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* Toggle switch style comes from your custom styles */
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+/* Add the Matrix background + form + loader etc. here */
