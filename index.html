@@ -71,14 +71,17 @@
   <!-- Contact Section -->
   <section id="contact" class="glass section" data-aos="fade-up">
     <h2>Get in Touch</h2>
-   <form action="https://formsubmit.io/send/vrohith17@gmail.com" method="POST" class="contact-form">
-  <input type="hidden" name="_redirect" value="https://codewithrohith-dev.github.io/thankyou.html">
-  <input type="text" name="_formsubmit_id" style="display:none">
-  <input type="email" name="email" placeholder="Your Email" required>
+  <form action="https://formspree.io/f/mdkzjdpe" method="POST" class="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
   <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+  <!-- Redirect to thankyou.html after submission -->
+  <input type="hidden" name="_redirect" value="thankyou.html" />
+
   <button type="submit" class="btn">Send Message</button>
-  <input type="hidden" name="_redirect" value="https://yourdomain.com/thankyou.html">
 </form>
+
     <p class="contact-links">
       Email: <a href="mailto:vrohith17@gmail.com">vrohith17@gmail.com</a> <br />
       LinkedIn: <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank">Rohith on LinkedIn</a> <br />
