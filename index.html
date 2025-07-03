@@ -2,104 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>R. Rohith | Portfolio</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon-96x96.png" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- AOS (Scroll Animations) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-
-  <!-- Matrix Background -->
-  <div class="matrix-container" aria-hidden="true">
-    <div class="matrix-pattern">
-      <div class="matrix-column"></div>
-      <div class="matrix-column"></div>
-      <div class="matrix-column"></div>
-    </div>
+  <div class="matrix-background">
+    <div class="matrix-overlay"></div>
   </div>
 
-  <!-- Theme Toggle -->
-  <label class="theme-switch">
-    <input type="checkbox" class="theme-switch__checkbox" onclick="toggleDarkMode()" />
-    <div class="theme-switch__container">
-      <div class="theme-switch__clouds"></div>
-      <div class="theme-switch__stars-container">🌙</div>
-      <div class="theme-switch__circle-container">
-        <div class="theme-switch__sun-moon-container">
-          <div class="theme-switch__moon">
-            <div class="theme-switch__spot"></div>
-            <div class="theme-switch__spot"></div>
-            <div class="theme-switch__spot"></div>
-          </div>
+  <main class="container">
+    <!-- Profile Image -->
+    <section class="profile-section" data-aos="zoom-in">
+      <img src="profile.jpeg" alt="Rohith Profile Picture" class="profile-pic" />
+      <h1>Hi, I'm <span>R. Rohith</span></h1>
+      <p class="subtitle">Python + Design Hybrid | Tech Support | Beginner Developer</p>
+      <a href="Rohith Resume Global.pdf" target="_blank" class="btn-glass">👁️ View Resume</a>
+    </section>
+
+    <!-- Skills -->
+    <section class="glass-box" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="tags">
+        <span>Python</span>
+        <span>Flask</span>
+        <span>Automation</span>
+        <span>Canva</span>
+        <span>Photopea</span>
+        <span>Photoshop</span>
+        <span>CapCut</span>
+        <span>Social Graphics</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="glass-box" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card" data-aos="zoom-in">
+          <img src="project1.png" alt="Project 1">
+          <h3>Fake News Detection</h3>
+          <p>Flask web app using BERT to detect fake news articles in real-time.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="project2.png" alt="Project 2">
+          <h3>Blockchain Medical Records</h3>
+          <p>Ethereum + IPFS to store and share secure medical records.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="project3.png" alt="Project 3">
+          <h3>Poster & Thumbnail Design</h3>
+          <p>Creative designs using Canva and Photopea for social media.</p>
         </div>
       </div>
-    </div>
-  </label>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero" data-aos="fade-up">
-    <h1>Hi, I'm <span>R. Rohith</span></h1>
-    <p>Python + Design Hybrid | Tech Support | Beginner Developer</p>
-    <a href="Rohith Resume Global.pdf" class="glow-btn" download>📄 Download Resume</a>
-  </section>
+    <!-- Contact Form -->
+    <section class="glass-box" id="contact" data-aos="fade-up">
+      <h2>Get in Touch</h2>
+      <form class="contact-form">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" required />
 
-  <!-- Skills -->
-  <section id="skills" class="skills-section" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>Python</span><span>Flask</span><span>File Automation</span>
-      <span>Canva</span><span>Photopea</span><span>Social Graphics</span>
-    </div>
-  </section>
+        <label>Message</label>
+        <textarea rows="5" placeholder="Type your message here..." required></textarea>
 
-  <!-- Projects -->
-  <section id="projects" class="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="project1.png" alt="Fake News Project"/>
-        <h3>Fake News Detection</h3>
-        <p>BERT + Flask app to detect fake news.</p>
-      </div>
-      <div class="project-card">
-        <img src="project2.png" alt="Blockchain Records"/>
-        <h3>Medical Record System</h3>
-        <p>Secure Ethereum IPFS-based medical sharing app.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" data-aos="fade-up">
-    <h2>Contact Me</h2>
-    <div class="form-container">
-      <form class="form">
-        <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="form-submit-btn">Send</button>
+        <button type="submit">Send</button>
       </form>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p>© 2025 R. Rohith</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 R. Rohith. All rights reserved.</p>
+    </footer>
+  </main>
 
-<script>
-  AOS.init();
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark");
-  }
-</script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
 </body>
 </html>
