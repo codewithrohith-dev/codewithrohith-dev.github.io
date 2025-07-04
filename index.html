@@ -1,99 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF‑8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R. Rohith — Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R Rohith | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 
-  <!-- Fonts & Icons -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Matrix Background -->
   <canvas id="matrixCanvas"></canvas>
 
-  <div class="container">
-    <!-- Hero -->
-    <section class="panel hero" data-aos="fade-up">
-      <div class="pic-wrapper"><img src="profile.jpeg" alt="R. Rohith" class="profile-pic"/></div>
-      <h1>Hi, I'm <span>R. Rohith</span></h1>
-      <p>Python + Design Hybrid | Tech Support | Beginner Developer</p>
-      <div class="btn-group">
-        <a href="#skills" class="btn">My Skills</a>
-        <button id="openResume" class="btn secondary">📄 View Resume</button>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="glass hero">
+    <div class="profile-container">
+      <img src="profile.jpeg" alt="Profile" class="profile-pic"/>
+      <div class="verified-tag">R. Rohith</div>
+    </div>
+    <h1>Designed for Designers to showcase their work.</h1>
+    <p class="tagline">Python + Design Hybrid | Tech Support | Beginner Developer</p>
+    <p class="description">Helping startups and brands craft expressive and engaging solutions for their software needs.</p>
+    <div class="buttons">
+      <a href="#skills" class="btn">My Skills</a>
+      <button class="btn secondary" onclick="openResumeModal()">📄 View Resume</button>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills" class="panel section" data-aos="fade-up">
-      <h2>Skills & Tools</h2>
-      <div class="skills-carousel">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fa-brands fa-flask" title="Flask"></i>
-        <i class="fa-solid fa-cogs" title="Automation"></i>
-        <i class="fa-brands fa-canva" title="Canva"></i>
-        <i class="fa-solid fa-photo-film" title="Photopea"></i>
-        <i class="fa-brands fa-adobe" title="Photoshop"></i>
-        <i class="fa-solid fa-video" title="CapCut"></i>
-        <i class="fa-solid fa-share-nodes" title="Social Media"></i>
-      </div>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="glass section">
+    <h2>My Tools</h2>
+    <div class="skill-scroll">
+      <img src="icons/python.svg" alt="Python"/>
+      <img src="icons/flask.svg" alt="Flask"/>
+      <img src="icons/html5.svg" alt="HTML"/>
+      <img src="icons/css3.svg" alt="CSS"/>
+      <img src="icons/photoshop.svg" alt="Photoshop"/>
+      <img src="icons/canva.svg" alt="Canva"/>
+      <img src="icons/git.svg" alt="Git"/>
+      <img src="icons/github.svg" alt="GitHub"/>
+      <!-- Add more icons as needed -->
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects" class="panel section" data-aos="fade-up">
-      <h2>Projects</h2>
-      <div class="cards">
-        <!-- Add your images & descriptions -->
-        <div class="card">
-          <img src="project1.png" alt="Fake News Detection">
-          <h3>Fake News Detection</h3>
-          <p>BERT-based Flask app to detect fake news in real-time.</p>
-        </div>
-        <div class="card">
-          <img src="project2.png" alt="Blockchain Medical Records">
-          <h3>Blockchain Medical Records</h3>
-          <p>Ethereum + IPFS to secure patient data.</p>
-        </div>
-        <div class="card">
-          <img src="project3.png" alt="Design Projects">
-          <h3>Design Projects</h3>
-          <p>Posters, thumbnails, media editing with Canva & Photopea.</p>
-        </div>
+  <!-- Projects Section -->
+  <section id="projects" class="glass section">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="project1.png" />
+        <h3>Fake News Detection</h3>
+        <p>BERT-based Flask app that flags fake news in real-time.</p>
+        <a href="#" class="case-study-link">View case study</a>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="panel section" data-aos="fade-up">
-      <h2>Get in Touch</h2>
-      <form action="https://formspree.io/f/mdkzjdpe" method="POST" class="contact-form">
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-      <div class="contact-links">
-        <p><strong>Email:</strong> <a href="mailto:vrohith17@gmail.com">vrohith17@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank">Rohith on LinkedIn</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/codewithrohith-dev" target="_blank">codewithrohith-dev</a></p>
+      <div class="card">
+        <img src="project2.png" />
+        <h3>Blockchain Medical Records</h3>
+        <p>Ethereum + IPFS for secure patient health record storage.</p>
+        <a href="#" class="case-study-link">View case study</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>© 2025 R. Rohith. All rights reserved.</footer>
-  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="glass section">
+    <h2>Get in Touch</h2>
+    <form action="https://formspree.io/f/mdkzjdpe" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p class="contact-links">
+      Email: <a href="mailto:vrohith17@gmail.com">vrohith17@gmail.com</a><br/>
+      LinkedIn: <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank">Rohith on LinkedIn</a><br/>
+      GitHub: <a href="https://github.com/codewithrohith-dev" target="_blank">codewithrohith-dev</a>
+    </p>
+  </section>
 
   <!-- Resume Modal -->
-  <div id="resumeModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <iframe src="Rohith Resume Global.pdf" frameborder="0"></iframe>
+  <div id="resumeModal" class="resume-modal">
+    <div class="resume-content">
+      <span class="close-btn" onclick="closeResumeModal()">×</span>
+      <iframe src="Rohith Resume Global.pdf" width="100%" height="100%"></iframe>
     </div>
   </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 R. Rohith. All rights reserved.
+  </footer>
+
+  <!-- Matrix Script -->
+  <script>
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "アカサタナハマヤラワイキシチニヒミリウクスツヌフムエケセテネヘメレコソトノホモロ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+  <!-- Resume Modal Script -->
+  <script>
+    function openResumeModal() {
+      document.getElementById('resumeModal').style.display = 'flex';
+    }
+    function closeResumeModal() {
+      document.getElementById('resumeModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
