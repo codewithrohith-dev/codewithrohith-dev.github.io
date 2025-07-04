@@ -2,79 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>R Rohith | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <!-- Matrix Background -->
   <canvas id="matrixCanvas"></canvas>
 
-  <!-- Hero Section -->
-  <section class="glass hero">
-    <div class="profile-container">
-      <img src="profile.jpeg" alt="Profile" class="profile-pic" />
-    </div>
-    <h1>R. Rohith</h1>
-    <p>Python + Design Hybrid | Tech Support | Beginner Developer</p>
-    <div class="buttons">
-      <a href="#skills" class="btn">My Skills</a>
-      <a href="Rohith Resume Global.pdf" target="_blank" class="btn secondary">📄 View Resume</a>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="glass section">
-    <h2>Skills</h2>
-    <div class="skill-icons-scroll">
-      <div class="skill-icon">🐍 Python</div>
-      <div class="skill-icon">🌐 Flask</div>
-      <div class="skill-icon">📁 Automation</div>
-      <div class="skill-icon">🎨 Canva</div>
-      <div class="skill-icon">🖼️ Photoshop</div>
-      <div class="skill-icon">✂️ CapCut</div>
-      <div class="skill-icon">📱 SMM Design</div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="glass section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="project1.png" alt="Fake News Project" />
-        <h3>Fake News Detection</h3>
-        <p>BERT-based Flask app that flags fake news in real-time.</p>
+  <main class="glass-container">
+    <header class="hero-section">
+      <div class="profile-pic-container">
+        <img src="profile.jpeg" alt="R Rohith" class="profile-pic"/>
       </div>
-      <div class="card">
-        <img src="project2.png" alt="Medical Record Project" />
-        <h3>Blockchain Medical Records</h3>
-        <p>Ethereum + IPFS for secure patient health record storage.</p>
+      <h1 class="hero-title">R. Rohith</h1>
+      <p class="hero-subtitle">Python + Design Hybrid | Tech Support | Beginner Developer</p>
+      <div class="buttons">
+        <a href="#skills" class="btn">My Skills</a>
+        <a href="Rohith Resume Global.pdf" target="_blank" class="btn secondary">📄 View Resume</a>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Contact Section -->
-  <section id="contact" class="glass section">
-    <h2>Get in Touch</h2>
-    <form action="https://formspree.io/f/mdkzjdpe" method="POST" class="contact-form">
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-    <p class="contact-links">
-      Email: <a href="mailto:vrohith17@gmail.com">vrohith17@gmail.com</a> <br />
-      LinkedIn: <a href="https://linkedin.com/in/rohith-rathinavel-94a860320" target="_blank">LinkedIn</a> <br />
-      GitHub: <a href="https://github.com/codewithrohith-dev" target="_blank">GitHub</a>
-    </p>
-  </section>
+    <section id="skills" class="glass section">
+      <h2>Skills</h2>
+      <div class="skills-scroll">
+        <div class="skill-icon">🐍 Python</div>
+        <div class="skill-icon">⚡ Flask</div>
+        <div class="skill-icon">📁 Automation</div>
+        <div class="skill-icon">🎨 Canva</div>
+        <div class="skill-icon">🖌️ Photoshop</div>
+        <div class="skill-icon">📱 CapCut</div>
+        <div class="skill-icon">📷 Photopea</div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    © 2025 R. Rohith. All rights reserved.
-  </footer>
+    <section id="projects" class="glass section">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Fake News Detection</h3>
+          <p>BERT-based Flask app that flags fake news in real-time.</p>
+        </div>
+        <div class="card">
+          <h3>Blockchain Medical Records</h3>
+          <p>Ethereum + IPFS for secure patient health record storage.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- Matrix Script -->
+    <section id="contact" class="glass section">
+      <h2>Get in Touch</h2>
+      <form action="https://formspree.io/f/mdkzjdpe" method="POST" class="contact-form">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <footer class="footer">© 2025 R. Rohith. All rights reserved.</footer>
+  </main>
+
   <script>
     const canvas = document.getElementById("matrixCanvas");
     const ctx = canvas.getContext("2d");
@@ -82,13 +69,13 @@
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const letters = "アカサタナハマヤラワABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const letters = "アカサタナハマヤラワイキシチニヒミリ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
 
     function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#0F0";
       ctx.font = fontSize + "px monospace";
@@ -96,12 +83,15 @@
       for (let i = 0; i < drops.length; i++) {
         const text = letters.charAt(Math.floor(Math.random() * letters.length));
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
         drops[i]++;
       }
     }
 
-    setInterval(drawMatrix, 33);
+    setInterval(drawMatrix, 35);
+
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
